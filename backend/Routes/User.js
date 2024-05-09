@@ -18,7 +18,7 @@ router.post("/Login", async (req,res)=>{
 
         const potrivire = await bcrypt.compare(Password, query[0].Password);
         if (!potrivire) {
-          return  res.status(401).json({ message: "Credidentiale invalide" });
+          return  res.status(402).json({ message: "Credidentiale invalide" });
         }
 
         const token=jwt.sign({ id: query[0].Id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: "24h" })
