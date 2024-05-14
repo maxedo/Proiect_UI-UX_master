@@ -14,7 +14,7 @@ const filtruimagine = (req, file, cb) => {
   
 const stocare= multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, "../Poze_jocuri")
+      cb(null, "../Poze_users")
     },
     filename: function (req, file, cb) {
       const sufixunic = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -25,59 +25,3 @@ const stocare= multer.diskStorage({
   })
   
 const upload = multer({ storage: stocare,fileFilter: filtruimagine })
-
-
-router.post("/Games", async (req,res)=>{
-
-    try{
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
-
-router.get("/Games", async(req,res)=>{
-    try{
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
-
-router.get("/Games/:Name", async(req,res)=>{
-    try{
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
-
-router.get("/ListGames/:Name/:Category", async(req,res)=>{
-    try{
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
-
-
-router.put("/Games", async(req,res)=>{
-    try{
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
-
-
-router.delete("/Games", async(req,res)=>{
-    try{
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
-
-
-
-module.exports=router;
