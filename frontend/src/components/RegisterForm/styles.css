@@ -1,0 +1,24 @@
+.register-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  input, button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%; /* Ensures inputs and buttons stretch to container width */
+  }
+  
+  button {
+    background-color: coral;
+    color: white;
+    border: none; /* Removes the default border */
+    cursor: pointer;
+    margin-top: 10px; /* Adds space between the last input and the button */
+  }

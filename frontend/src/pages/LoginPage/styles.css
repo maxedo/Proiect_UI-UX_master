@@ -1,0 +1,11 @@
+.login-page {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #FA8072, #057F8D);
+  }
+  h2 {
+    align-self: center;
+    margin-bottom: 25%;
+  }
