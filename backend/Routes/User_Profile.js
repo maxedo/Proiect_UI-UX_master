@@ -3,6 +3,7 @@ const express = require("express");
 const router = express.Router();
 const db=Data.getInstance();
 const multer=require('multer')
+const { Autentificare } = require("../Middleware/Auth");
 
 const filtruimagine = (req, file, cb) => {
     if (file.mimetype.startsWith("image")) {
