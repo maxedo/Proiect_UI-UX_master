@@ -24,5 +24,17 @@ const stocare= multer.diskStorage({
       cb(null, file.fieldname + '-' + sufixunic+fileExtension)
     }
   })
+
+
+router.put("/AboutMe",Autentificare, async (req,res)=>{
+  try{
+    const {AboutMe}=req.body;
+    const [query]=await db.execute("UPDATE PROFILE SET ABOUT_ME=? WHERE USER_ID=?",[AboutMe,req.auth.id]);
+    res.status(200).json("Operatiune realizata cu succes");
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
+
   
 const upload = multer({ storage: stocare,fileFilter: filtruimagine })
