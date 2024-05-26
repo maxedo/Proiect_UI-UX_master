@@ -25,6 +25,14 @@ const stocare= multer.diskStorage({
     }
   })
 
+router.put("/Avatar",Autentificare, async(req,res)=>{
+  try{
+    
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
+
 
 router.put("/AboutMe",Autentificare, async (req,res)=>{
   try{

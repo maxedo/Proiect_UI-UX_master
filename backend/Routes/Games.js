@@ -38,7 +38,8 @@ router.post("/Games", async (req,res)=>{
 
 router.get("/Games", async(req,res)=>{
     try{
-
+        const [query]=await db.execute("SELECT * FROM GAMES ORDER BY RAND()");
+        res.status(200).json(query);
     }catch(err){
         res.status(500).json(err);
     }
@@ -46,7 +47,8 @@ router.get("/Games", async(req,res)=>{
 
 router.get("/Games/:Name", async(req,res)=>{
     try{
-
+        const [query]=await db.execute("SELECT * FROM GAMES WHERE NAME LIKE ?",[req.params.Name]);
+        res.status(200).json(query);
     }catch(err){
         res.status(500).json(err);
     }
@@ -54,25 +56,19 @@ router.get("/Games/:Name", async(req,res)=>{
 
 router.get("/ListGames/:Name/:Category", async(req,res)=>{
     try{
-
+        const [query]=await db.execute("SELECT * FROM GAMES WHERE NAME LIKE ? AND CATEGORY LIKE ?",[req.params.Name,req.params.Category]);
+        res.status(200).json(query);
     }catch(err){
         res.status(500).json(err);
     }
 })
 
 
-router.put("/Games", async(req,res)=>{
+
+router.delete("/Games/:Id", async(req,res)=>{
     try{
-
-    }catch(err){
-        res.status(500).json(err);
-    }
-})
-
-
-router.delete("/Games", async(req,res)=>{
-    try{
-
+        const [query]=await db.execute("DELETE FROM GAMES WHERE Id=?",[req.params.Id]);
+        req.status(200).json({Message:"Operatiune realizata cu succes"});
     }catch(err){
         res.status(500).json(err);
     }
