@@ -25,9 +25,11 @@ const stocare= multer.diskStorage({
     }
   })
 
-router.put("/Avatar",Autentificare, async(req,res)=>{
+router.put("/Avatar",Autentificare,upload.single('image'), async(req,res)=>{
+  const {filename,path}=req.file;
   try{
-    
+    const [query]=await db.execute("UPDATE PROFILE SET PHOTO=? WHERE USER_ID=?",[filename,req.auth.id])
+    res.status(200).json("Operatiune realizata cu succes");
   }catch(err){
     res.status(500).json(err);
   }
