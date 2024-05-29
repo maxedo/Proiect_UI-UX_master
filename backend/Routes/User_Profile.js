@@ -25,6 +25,8 @@ const stocare= multer.diskStorage({
     }
   })
 
+const upload = multer({ storage: stocare,fileFilter: filtruimagine })
+
 router.put("/Avatar",Autentificare,upload.single('image'), async(req,res)=>{
   const {filename,path}=req.file;
   try{
@@ -47,4 +49,9 @@ router.put("/AboutMe",Autentificare, async (req,res)=>{
 })
 
   
-const upload = multer({ storage: stocare,fileFilter: filtruimagine })
+
+
+
+
+
+module.exports=router;
