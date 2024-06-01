@@ -48,8 +48,23 @@ router.put("/AboutMe",Autentificare, async (req,res)=>{
   }
 })
 
-  
+router.get("/User_Reviews",Autentificare,async(req,res)=>{
+  try{
+    const [query]=await db.execute("SELECT * FROM REVIEWS WHERE USER_ID=?",[req.auth.id])
+    res.status(200).json(query);
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
 
+router.get("/Profile",Autentificare,async(req,res)=>{
+  try{
+    const [query]=await db.execute("SELECT * FROM PROFILE WHERE USER_ID=?",[req.auth.id])
+    res.status(200).json(query)
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
 
 
 
