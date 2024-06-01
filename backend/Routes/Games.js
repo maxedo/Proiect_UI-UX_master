@@ -104,6 +104,14 @@ router.get("/ListGames",Autentificare,async(req,res)=>{
     }
 })
 
+router.delete("/ListGames/:Id",Autentificare, async(req,res=>{
+    try{
+        const [query]=await db.execute("DELETE FROM GAME_LIST WHERE USER_ID=? AND GAME_ID")
+    }catch(err){
+        res.status(500).json(err);
+    }
+}))
+
 
 
 
