@@ -38,6 +38,15 @@ router.post("/Games",upload.single('image'), async (req,res)=>{
     }
 })
 
+router.get("/RecommendMe",Autentificare, async(req,res)=>{
+    try{
+        const [query]=await db.execute("SELECT * FROM GAMES ORDER BY RAND() LIMIT 1");
+        res.status(200).json(query);
+    }catch(err){
+        res.status(500).json(err);
+    }
+})
+
 router.get("/Games", async(req,res)=>{
     try{
         const [query]=await db.execute("SELECT * FROM GAMES ORDER BY RAND()");
