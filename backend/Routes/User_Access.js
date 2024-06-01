@@ -1,4 +1,4 @@
-const Data=require("../Data/Data")
+const Data=require("../Data/DbConnection");
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
