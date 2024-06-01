@@ -1,11 +1,11 @@
-/* Reset some default browser styles */
+
 body, div, h2, form, input, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Use this for both login and register pages */
+
 .form-container {
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@ body, div, h2, form, input, button {
     background: linear-gradient(135deg, #fceff9 0%, #f9d6c1 50%, #a1c4fd 100%);
 }
 
-/* Common styles for form elements */
+
 .form {
     background-color: white;
     padding: 20px;
@@ -23,12 +23,12 @@ body, div, h2, form, input, button {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 300px; /* Fixed width */
+    width: 300px; 
 }
 
 .form h2 {
     text-align: center;
-    margin-bottom: 20px; /* Space below the header */
+    margin-bottom: 20px; 
 }
 
 .form-input, .form-button {
@@ -43,7 +43,7 @@ body, div, h2, form, input, button {
     color: white;
     border: none;
     cursor: pointer;
-    margin-top: 20px; /* Space above the button */
+    margin-top: 20px;
 }
 
 .link-button {

@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #FA8072, #057F8D);
+    background: linear-gradient(135deg, #fceff9 0%, #f9d6c1 50%, #a1c4fd 100%);
   }
 
   h2 {

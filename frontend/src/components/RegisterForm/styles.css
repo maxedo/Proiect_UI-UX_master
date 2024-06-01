@@ -12,13 +12,13 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 100%; /* Ensures inputs and buttons stretch to container width */
+    width: 100%;
   }
   
   button {
     background-color: coral;
     color: white;
-    border: none; /* Removes the default border */
+    border: none; 
     cursor: pointer;
-    margin-top: 10px; /* Adds space between the last input and the button */
+    margin-top: 10px; 
   }
