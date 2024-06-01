@@ -37,6 +37,8 @@ router.post("/SignUp", async(req,res)=>{
     
     try{
         const [query]=await db.execute("INSERT INTO Users(Email,Nickname, Password) VALUES (?, ?,?)",[Email, Nickname, hashedPassword]);
+        const [queryInter]=await db.execute("SELECT Id FROM Users WHERE Email=?",[Email]);
+        const [query2]=await db.execute("INSERT INTO PROFILE(USER_ID) VALUES (?)",[queryInter[0].Id]);
         res.status(200).json({ message: "Utilizator creat" });
     }
     catch(err){
