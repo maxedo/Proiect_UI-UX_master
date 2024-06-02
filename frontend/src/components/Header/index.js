@@ -49,6 +49,28 @@ const Header = () => {
     }
   };
 
+  const cautareCuFiltru = async ()=>{
+    try{
+      const response = await fetch('http://localhost:5000/RecommendMe', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      const randomGame = await response.json();
+      navigate(`/game/${randomGame.Id}`, { state: randomGame });
+    }catch(error){console.error('Error fetching random game:', error); }
+  }
+
+  const cautareFaraFiltru = async ()=>{
+    const response = await fetch('http://localhost:5000/RecommendMe', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      const randomGame = await response.json();
+      navigate(`/game/${randomGame.Id}`, { state: randomGame });
+  }
+
   return (
     <header className="header">
       <div className="left-section">
@@ -80,6 +102,7 @@ const Header = () => {
       </div>
       <div className="search-container">
         <input type="text" className="search-bar" placeholder="Search on iGDB" />
+        <button className='searchButton'>Search</button>
         <select className="category-dropdown">
           <option value="all">All categories</option>
           <option value="hack-n-slash">Hack n’ Slash</option>

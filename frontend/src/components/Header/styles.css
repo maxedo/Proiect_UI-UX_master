@@ -7,6 +7,19 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   height: 4vh;
 }
+.searchButton{
+  background-color: white;
+  color: black;
+  border: solid;
+  cursor: pointer;
+  margin-top: 0px;
+  width: 90px;
+  border-width: 2px;
+  border-left: #fceff9;
+  border-top: #000;
+  border-bottom: #000;
+  border-radius: 0px;
+}
 
 .left-section {
   display: flex;
