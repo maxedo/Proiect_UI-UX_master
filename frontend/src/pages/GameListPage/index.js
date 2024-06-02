@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import './styles.css';
 
@@ -16,9 +17,6 @@ const GameListPage = () => {
       const data = await response.json();
       if (Array.isArray(data)) {
         setGames(data);
-        console.log(games);
-        console.log(data);
-        console.log(games[0].Name);
       } else {
         console.error('Unexpected response format:', data);
       }
@@ -57,12 +55,14 @@ const GameListPage = () => {
         <div className="game-list">
           {games.map((game, index) => (
             <div key={index} className="game-item">
-              {game.IMAGE ? (
-                <img src={`http://localhost:5000/poze_jocuri/${game.IMAGE}`} alt={game.NAME} className="game-image-thumb" />
-              ) : (
-                <div className="no-image">No Image</div>
-              )}
-              <span className="game-title">{game.NAME || 'No Name'}</span>
+              <Link to={{ pathname: `/game/${game.Id}`, state: { id: game.Id } }}>
+                {game.IMAGE ? (
+                  <img src={`http://localhost:5000/poze_jocuri/${game.IMAGE}`} alt={game.NAME} className="game-image-thumb" />
+                ) : (
+                  <div className="no-image">No Image</div>
+                )}
+                <span className="game-title">{game.NAME || 'No Name'}</span>
+              </Link>
               <div className="remove-button" onClick={() => handleRemove(game.Id)}>x</div>
             </div>
           ))}
