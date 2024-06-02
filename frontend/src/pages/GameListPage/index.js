@@ -14,7 +14,6 @@ const GameListPage = () => {
         },
       });
       const data = await response.json();
-      console.log(data); // Log the response to check the fields
       if (Array.isArray(data)) {
         setGames(data);
         console.log(games);

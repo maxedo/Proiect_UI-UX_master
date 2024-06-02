@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the Poze_users directory
+
 app.use('/poze_users', express.static(path.join(__dirname, 'Poze_users')));
 app.use('/poze_jocuri', express.static(path.join(__dirname, 'Poze_jocuri')));
 
