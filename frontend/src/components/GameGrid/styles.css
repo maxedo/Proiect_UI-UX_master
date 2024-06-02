@@ -1,9 +1,8 @@
 .game-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    padding: 20px;
-    width:80vw;
-    height:30vh;
-  }
-  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 20px;
+  width: 80vw;
+  height: 30vh;
+}

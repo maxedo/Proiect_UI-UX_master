@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './styles.css';
 import Image from './igdb2.png';
 
@@ -7,6 +7,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [profilePicture, setProfilePicture] = useState('');
   const token = localStorage.getItem('user-info');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -34,6 +35,20 @@ const Header = () => {
     setMenuOpen(false);
   };
 
+  const handleRecommend = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/RecommendMe', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      const randomGame = await response.json();
+      navigate(`/game/${randomGame.Id}`, { state: randomGame });
+    } catch (error) {
+      console.error('Error fetching random game:', error);
+    }
+  };
+
   return (
     <header className="header">
       <div className="left-section">
@@ -55,17 +70,9 @@ const Header = () => {
               <Link to="/game-list">My GameList</Link>
               <div className="submenu"
                 onMouseLeave={handleMouseLeave}
+                onClick={handleRecommend}
               >
                 <span className="submenu-title">Recommend me a random game</span>
-                <div className="submenu-content">
-                  <Link to="/recommend/adventure">Adventure</Link>
-                  <Link to="/recommend/hack-n-slash">Hack n’ Slash</Link>
-                  <Link to="/recommend/fps">First Person Shooter</Link>
-                  <Link to="/recommend/tps">Third Person Shooter</Link>
-                  <Link to="/recommend/horror">Horror</Link>
-                  <Link to="/recommend/souls-like">Souls-like</Link>
-                  <Link to="/recommend/roguelite">Roguelite</Link>
-                </div>
               </div>
             </div>
           )}

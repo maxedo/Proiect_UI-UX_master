@@ -6,20 +6,20 @@ const ProfilePage = () => {
   const [profile, setProfile] = useState({ Nickname: '', ABOUT_ME: '', PHOTO: '' });
   const [reviews, setReviews] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
-  const [showFileInput, setShowFileInput] = useState(false);
   const [newAboutMe, setNewAboutMe] = useState('');
+  const [showFileInput, setShowFileInput] = useState(false); // State to control file input visibility
   const token = localStorage.getItem('user-info');
 
   const fetchData = async () => {
     try {
-      const profileResponse = await fetch('http://localhost:5000/Profile', {
+      const profileResponse = await fetch('http://localhost:5000/profile', {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
       });
       const profileData = await profileResponse.json();
       setProfile(profileData[0]);
-
+      console.log(profile.PHOTO);
       const reviewsResponse = await fetch('http://localhost:5000/User_Reviews', {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -72,7 +72,7 @@ const ProfilePage = () => {
       });
       if (response.ok) {
         fetchData(); // Refresh profile data to get the new photo
-        setShowFileInput(false);
+        setShowFileInput(false); // Hide file input after successful update
       } else {
         console.error('Failed to update photo');
       }
@@ -105,7 +105,7 @@ const ProfilePage = () => {
             <div className="profile-reviews-container">
               {reviews.map((review) => (
                 <div key={review.Id} className="profile-review">
-                  <h3 className="profile-review-game">{review.IdGame}</h3>
+                  <h3 className="profile-review-game">{review.GameName}</h3>
                   <p className="profile-review-text">{review.COMMENT}</p>
                   <div className="profile-review-rating">Rating: {review.RATING} / 5</div>
                 </div>
@@ -119,7 +119,7 @@ const ProfilePage = () => {
             <input type="file" onChange={handlePhotoChange} />
           )}
           <button className="profile-edit-button" onClick={() => setShowFileInput(!showFileInput)}>
-            {showFileInput ? 'Submit' : 'Edit Picture'}
+            {showFileInput ? 'Submit Picture' : 'Edit Picture'}
           </button>
         </div>
       </div>

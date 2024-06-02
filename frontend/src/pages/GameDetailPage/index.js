@@ -6,7 +6,7 @@ import './styles.css';
 const GameDetailPage = () => {
   const { id } = useParams();
   const location = useLocation();
-  const [game, setGame] = useState(location.state || {}); 
+  const [game, setGame] = useState(location.state || {});
   const [reviews, setReviews] = useState([]);
   const [score, setScore] = useState(0);
   const token = localStorage.getItem('user-info');
@@ -71,7 +71,7 @@ const GameDetailPage = () => {
             <div className="game-detail-reviews-container">
               {reviews.map(review => (
                 <div key={review.Id} className="game-detail-review">
-                  <h3 className="game-detail-review-author">{review.AUTHOR}</h3>
+                  <h3 className="game-detail-review-author">{review.REVIEWER_NAME}</h3>
                   <p className="game-detail-review-text">{review.COMMENT}</p>
                   <div className="game-detail-review-rating">Rating: {review.RATING} / 5</div>
                 </div>

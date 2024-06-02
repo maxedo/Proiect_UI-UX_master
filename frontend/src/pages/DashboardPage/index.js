@@ -9,7 +9,7 @@ const DashboardPage = () => {
       <Header />
       <div className="content">
         <h2>Our daily favorites</h2>
-        <GameGrid className="game-grid"/>
+        <GameGrid className="game-grid" />
       </div>
     </div>
   );

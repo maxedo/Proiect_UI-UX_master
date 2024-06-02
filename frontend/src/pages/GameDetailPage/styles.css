@@ -1,5 +1,5 @@
 .game-detail-page {
-  min-height: 100vh; /* Ensure the background covers the entire page */
+  min-height: 100vh;
   background: linear-gradient(135deg, #fceff9 0%, #f9d6c1 50%, #a1c4fd 100%);
   color: black;
 }

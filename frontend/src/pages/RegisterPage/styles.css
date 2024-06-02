@@ -1,12 +1,12 @@
 .register-page {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #fceff9 0%, #f9d6c1 50%, #a1c4fd 100%);
-  }
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #fceff9 0%, #f9d6c1 50%, #a1c4fd 100%);
+}
 
-  h2 {
-    align-self: center;
-    margin-bottom: 25%;
-  }
+h2 {
+  align-self: center;
+  margin-bottom: 25%;
+}

@@ -47,12 +47,12 @@ router.get("/Games/:Id", async (req, res) => {
 })
 
 router.get("/Reviews/:GameId", async (req, res) => {
-  try {
-    const [query] = await db.execute("SELECT * FROM REVIEWS WHERE IdGame = ?", [req.params.GameId]);
-    res.status(200).json(query);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+    try {
+      const [query] = await db.execute(`SELECT REVIEWS.*, USERS.Nickname AS REVIEWER_NAME FROM REVIEWS JOIN USERS ON REVIEWS.USER_ID = USERS.Id WHERE REVIEWS.IdGame = ?`, [req.params.GameId]);
+      res.status(200).json(query);
+    } catch (err) {
+      res.status(500).json(err);
+    }
 })
 
 router.post("/ListGames/:Id", Autentificare, async (req, res) => {
@@ -89,6 +89,15 @@ router.get("/Games", async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-});
+})
+
+router.get("/RecommendMe", Autentificare, async (req, res) => {
+    try {
+        const [query] = await db.execute("SELECT * FROM GAMES ORDER BY RAND() LIMIT 1");
+        res.status(200).json(query[0]);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+})
 
 module.exports = router;

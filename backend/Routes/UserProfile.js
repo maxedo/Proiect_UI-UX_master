@@ -48,11 +48,14 @@ router.put("/AboutMe",Autentificare, async (req,res)=>{
   }
 })
 
-router.get("/User_Reviews",Autentificare,async(req,res)=>{
-  try{
-    const [query]=await db.execute("SELECT * FROM REVIEWS WHERE USER_ID=?",[req.auth.id])
+router.get("/User_Reviews", Autentificare, async (req, res) => {
+  try {
+    const [query] = await db.execute(
+      "SELECT r.*, g.NAME AS GameName FROM REVIEWS r JOIN GAMES g ON r.IdGame = g.Id WHERE r.USER_ID = ?",
+      [req.auth.id]
+    );
     res.status(200).json(query);
-  }catch(err){
+  } catch (err) {
     res.status(500).json(err);
   }
 })
