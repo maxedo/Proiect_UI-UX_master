@@ -100,7 +100,23 @@ router.get("/RecommendMe", Autentificare, async (req, res) => {
     }
 })
 
+router.get("/GameSearch/:Name",Autentificare,async(req,res)=>{
+  try{
+    const [query]=await db.execute("SELECT * FROM GAMES WHERE NAME LIKE ?",[req.params.Name]);
+    res.status(200).json(query);
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
 
+router.get("/GameSearch/:Name/:Category",Autentificare,async(req,res)=>{
+  try{
+    const [query]=await db.execute("SELECT * FROM GAMES WHERE NAME LIKE ? AND CATEGORY=?",[req.params.Name,req.params.Category]);
+    res.status(200).json(query);
+  }catch(err){
+    res.status(500).json(err);
+  }
+})
 
 
 module.exports = router;
