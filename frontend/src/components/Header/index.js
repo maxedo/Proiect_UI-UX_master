@@ -1,10 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
 import Image from './igdb2.png';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profilePicture, setProfilePicture] = useState('');
+  const token = localStorage.getItem('user-info');
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/Profile', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        const profileData = await response.json();
+        setProfilePicture(`http://localhost:5000/poze_users/${profileData[0].PHOTO}`);
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    };
+
+    fetchProfileData();
+  }, [token]);
 
   const handleMouseEnter = () => {
     setMenuOpen(true);
@@ -20,9 +40,9 @@ const Header = () => {
         <Link to="/" className="logo">
           <img src={Image} alt="iGDB Logo" />
         </Link>
-        <div 
-          className="menu-container" 
-          onMouseEnter={handleMouseEnter} 
+        <div
+          className="menu-container"
+          onMouseEnter={handleMouseEnter}
         >
           <div className="menu-button">
             <div className="bar"></div>
@@ -59,9 +79,9 @@ const Header = () => {
           <option value="rpg">RPG</option>
         </select>
       </div>
-        <Link to="/profile" className='profile'>
-        <img src="https://assets.xboxservices.com/assets/20/38/203850f5-1bed-4912-b25f-193ee890c97f.jpg?n=Fortnite_GLP-Page-Hero-1084_876951_1920x1080.jpg" alt="User Profile" className="profile-picture" />
-        </Link>
+      <Link to="/profile" className='profile'>
+        <img src={profilePicture} alt="User Profile" className="profile-picture" />
+      </Link>
     </header>
   );
 };

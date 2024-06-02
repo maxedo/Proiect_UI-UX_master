@@ -95,14 +95,14 @@ router.post("/ListGames/:Id",Autentificare, async(req,res)=>{
     }
 })
 
-router.get("/ListGames",Autentificare,async(req,res)=>{
-    try{
-        const [query]=await db.execute("SELECT g.* FROM GAMES AS g,GAME_LIST AS l WHERE g.Id=l.GAME_ID AND l.USER_ID=?",[req.auth.id])
-        req.status(200).json({Message:"Operatiune realizata cu succes"});
-    }catch(err){
-        res.status(500).json(err);
+router.get("/ListGames", Autentificare, async (req, res) => {
+    try {
+      const [query] = await db.execute("SELECT g.* FROM GAMES AS g, GAME_LIST AS l WHERE g.Id = l.GAME_ID AND l.USER_ID = ?", [req.auth.id]);
+      res.status(200).json(query);
+    } catch (err) {
+      res.status(500).json(err);
     }
-})
+  })
 
 router.delete("/ListGames/:Id",Autentificare, async(req,res)=>{
     try{

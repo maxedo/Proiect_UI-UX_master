@@ -4,15 +4,7 @@ import './styles.css';
 
 const reviews = [
   { id: 1, author: 'John Doe', text: 'Great game, very engaging!', rating: 5 },
-  { id: 2, author: 'Jane Smith', text: 'Loved the graphics and gameplay.', rating: 4 },
-  { id: 3, author: 'John Doe', text: 'Great game, very engaging!', rating: 5 },
-  { id: 4, author: 'Jane Smith', text: 'Loved the graphics and gameplay.', rating: 4 },
-  { id: 5, author: 'John Doe', text: 'Great game, very engaging!', rating: 5 },
-  { id: 6, author: 'Jane Smith', text: 'Loved the graphics and gameplay.', rating: 4 },
-  { id: 7, author: 'John Doe', text: 'Great game, very engaging!', rating: 5 },
-  { id: 8, author: 'Jane Smith', text: 'Loved the graphics and gameplay.', rating: 4 },
-  { id: 9, author: 'John Doe', text: 'Great game, very engaging!', rating: 5 },
-  { id: 10, author: 'Jane Smith', text: 'Loved the graphics and gameplay.', rating: 4 },
+
 ];
 
 const gameScore = (5+4+5+4+5+4+5+4+5+4)/10; 

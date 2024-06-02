@@ -1,107 +1,109 @@
-  .game-detail-page {
-    background: linear-gradient(135deg, #fceff9 0%, #f9d6c1 50%, #a1c4fd 100%);
-    color: black;
-  }
-  
-  .game-detail-page .game-detail-content {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    flex-grow: 1;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .game-detail-page .game-detail-left-section {
-    flex: 2;
-    margin-right: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .game-detail-page .game-detail-right-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .game-detail-page .game-detail-title {
-    font-size: 2em;
-    margin-bottom: 20px;
-  }
-  
-  .game-detail-page .game-detail-description {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-  }
-  
-  .game-detail-page .game-detail-reviews {
-    margin-top: 40px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .game-detail-page .game-detail-reviews-title {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-  }
-  
-  .game-detail-page .game-detail-reviews-container {
-    flex-grow: 1;
-    overflow-y: auto;
-  }
-  
-  .game-detail-page .game-detail-review {
-    background-color: #FAF9F6;
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
-  
-  .game-detail-page .game-detail-review-author {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-  }
-  
-  .game-detail-page .game-detail-review-text {
-    font-size: 1em;
-  }
-  
-  .game-detail-page .game-detail-review-rating {
-    font-size: 1em;
-    color: black;
-  }
-  
-  .game-detail-page .game-detail-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .game-detail-page .game-detail-score {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: black;
-  }
-  
-  .game-detail-page .game-detail-add-to-list {
-    background-color: #FAF9F6;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  
-  .game-detail-page .game-detail-add-to-list:hover {
-    background-color: #f0c4b3;
-  }
-  
-  .game-detail-page .game-detail-genre {
-    font-size: 1.2em;
-  }
+.game-detail-page {
+  min-height: 100vh; /* Ensure the background covers the entire page */
+  background: linear-gradient(135deg, #fceff9 0%, #f9d6c1 50%, #a1c4fd 100%);
+  color: black;
+}
+
+.game-detail-page .game-detail-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  flex-grow: 1;
+  width: 85vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-detail-page .game-detail-left-section {
+  flex: 2;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-detail-page .game-detail-right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-detail-page .game-detail-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.game-detail-page .game-detail-description {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.game-detail-page .game-detail-reviews {
+  margin-top: 40px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-detail-page .game-detail-reviews-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.game-detail-page .game-detail-reviews-container {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.game-detail-page .game-detail-review {
+  background-color: #FAF9F6;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.game-detail-page .game-detail-review-author {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.game-detail-page .game-detail-review-text {
+  font-size: 1em;
+}
+
+.game-detail-page .game-detail-review-rating {
+  font-size: 1em;
+  color: black;
+}
+
+.game-detail-page .game-detail-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.game-detail-page .game-detail-score {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.game-detail-page .game-detail-add-to-list {
+  background-color: #FAF9F6;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.game-detail-page .game-detail-add-to-list:hover {
+  background-color: #f0c4b3;
+}
+
+.game-detail-page .game-detail-genre {
+  font-size: 1.2em;
+}

@@ -15,7 +15,7 @@ const filtruimagine = (req, file, cb) => {
   
 const stocare= multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, "../Poze_users")
+      cb(null, "./Poze_users")
     },
     filename: function (req, file, cb) {
       const sufixunic = Date.now() + '-' + Math.round(Math.random() * 1E9);
@@ -57,14 +57,18 @@ router.get("/User_Reviews",Autentificare,async(req,res)=>{
   }
 })
 
-router.get("/Profile",Autentificare,async(req,res)=>{
-  try{
-    const [query]=await db.execute("SELECT * FROM PROFILE WHERE USER_ID=?",[req.auth.id])
-    res.status(200).json(query)
-  }catch(err){
+router.get("/Profile", Autentificare, async (req, res) => {
+  try {
+    const [query] = await db.execute(`
+      SELECT p.*, u.Nickname FROM PROFILE p
+      JOIN USERS u ON p.USER_ID = u.Id
+      WHERE p.USER_ID = ?
+    `, [req.auth.id]);
+    res.status(200).json(query);
+  } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 
 
