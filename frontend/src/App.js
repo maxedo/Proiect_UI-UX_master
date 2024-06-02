@@ -16,8 +16,8 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/game-list" element={<GameListPage />} />
-        <Route path="/game-details-page" element={<GameDetailPage/>}/>
-        <Route path="/profile" element={<ProfilePage/>}/>
+        <Route path="/game/:id" element={<GameDetailPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
   );

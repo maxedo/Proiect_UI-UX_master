@@ -1,13 +1,18 @@
 import React from 'react';
 import './styles.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const GameThumbnail = ({ title, image }) => {
+const GameThumbnail = ({ id, title, image, onAddToList }) => {
   return (
-    <Link className="game-thumbnail" to="/game-details-page">
-      <img src={image} alt={title} className="game-image" />
-      <div className="game-add">+</div>
+    <div className="game-thumbnail">
+      <Link className="game-image-link" to={`/game/${id}`} state={{ id, title, image }}>
+        <img src={image} alt={title} className="game-image" />
       </Link>
+      <div className="game-add" onClick={(e) => {
+        e.preventDefault(); // Prevent navigation when clicking the + button
+        onAddToList(id);
+      }}>+</div>
+    </div>
   );
 };
 
