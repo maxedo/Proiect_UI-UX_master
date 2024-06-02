@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const GameThumbnail = ({ id, title, image, onAddToList }) => {
   return (
     <div className="game-thumbnail">
-      <Link className="game-image-link" to={`/game/${id}`} state={{ id, title, image }}>
+      <Link className="game-image-link" to={{ pathname: `/game/${id}`, state: { id, title, image } }}>
         <img src={image} alt={title} className="game-image" />
       </Link>
       <div className="game-add" onClick={(e) => {

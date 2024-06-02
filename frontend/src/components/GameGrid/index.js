@@ -4,6 +4,7 @@ import './styles.css';
 
 const GameGrid = () => {
   const [games, setGames] = useState([]);
+  const [gameList, setGameList] = useState([]);
   const token = localStorage.getItem('user-info');
 
   useEffect(() => {
@@ -24,10 +25,31 @@ const GameGrid = () => {
       }
     };
 
+    const fetchGameList = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/ListGames', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        setGameList(data);
+      } catch (error) {
+        console.error('Error fetching game list:', error);
+      }
+    };
+
     fetchGames();
+    fetchGameList();
   }, []);
 
   const handleAddToList = async (id) => {
+    // Check if the game is already in the game list
+    if (gameList.some(game => game.Id === id)) {
+      console.log('Game is already in the list');
+      return;
+    }
+
     try {
       const response = await fetch(`http://localhost:5000/ListGames/${id}`, {
         method: 'POST',
@@ -37,6 +59,7 @@ const GameGrid = () => {
       });
       if (response.ok) {
         console.log('Game added to list');
+        setGameList([...gameList, games.find(game => game.Id === id)]);
       } else {
         console.error('Failed to add game to list');
       }
