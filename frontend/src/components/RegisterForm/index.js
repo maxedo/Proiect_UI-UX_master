@@ -28,7 +28,7 @@ const RegisterForm = () => {
       const data = await response.json();
       if (response.ok) {
         alert('User created successfully');
-        navigate('/login');
+        navigate('/');
       } else {
         alert(data.message);
       }
